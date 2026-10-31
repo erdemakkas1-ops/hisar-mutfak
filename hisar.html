@@ -1,0 +1,746 @@
+<title>Hisar Mutfak Muğla</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Hisar Mutfak, Muğla. Lake, soft ve panel kapaklı mutfak dolabı, kapak yenileme, banyo dolabı, gardırop ve TV ünitesi. Ücretsiz keşif ve çizim.">
+<meta name="theme-color" content="#f2eee8">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="Hisar Mutfak Muğla · Mutfağınız, sizin renginizde">
+<meta property="og:description" content="Mutfak, banyo ve dekorasyon. Ölçüsünü alır, çizer, üretir ve kurarız. Menteşe · Ula · Yatağan · Bodrum.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a pinned colour film (four of Hisar's own kitchens, the ground taking each one's door colour),
+   then editorial sections on a warm paper ground with ink and the logo's red. */
+:root{
+  --paper:#f2eee8;      /* warm paper, the light ground */
+  --paper-2:#e8e2d9;
+  --ink:#171615;
+  --ink-dim:rgba(23,22,21,.66);
+  --line:rgba(23,22,21,.16);
+  --cream:#f4f0ea;      /* text on dark */
+  --cream-dim:rgba(244,240,234,.72);
+  --cream-line:rgba(244,240,234,.18);
+  --red:#d3132f;        /* the red of the "mutfak" tag in their logo */
+  --red-deep:#a90e25;
+  --f-sans:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+  --gut:clamp(16px,4.2vw,64px);
+  --head:64px;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1rem/1.6 var(--f-sans);font-stretch:100%;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.wrap{padding-left:max(var(--gut),env(safe-area-inset-left,0px));padding-right:max(var(--gut),env(safe-area-inset-right,0px))}
+.eyebrow{font:500 .72rem/1.3 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin:0}
+/* display type: condensed, heavy, upper case — like a row of cabinet fronts */
+.disp{font-family:var(--f-sans);font-weight:800;font-stretch:68%;text-transform:uppercase;letter-spacing:-.005em;line-height:.96;text-wrap:balance;margin:0}
+.disp .r{color:var(--red)}
+h3{margin:0}
+.btn{display:inline-flex;align-items:center;gap:.6em;min-height:48px;padding:.8em 1.35em;border:1.5px solid currentColor;border-radius:4px;font:700 .8rem/1 var(--f-sans);font-stretch:110%;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .2s,color .2s,border-color .2s;cursor:pointer;background:none;color:inherit}
+.btn--red{background:var(--red);border-color:var(--red);color:#fff}
+.btn--red:hover{background:var(--red-deep);border-color:var(--red-deep)}
+.btn--ghost:hover{background:rgba(128,128,128,.2)}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* ---------- header ---------- */
+.top{position:fixed;top:0;left:0;right:0;z-index:50;height:calc(var(--head) + env(safe-area-inset-top,0px));padding-top:env(safe-area-inset-top,0px);display:flex;align-items:center;justify-content:space-between;gap:16px;color:var(--ink);transition:background .3s,color .4s}
+.top.dark{color:var(--cream)}
+.top.solid{background:rgba(242,238,232,.94);color:var(--ink);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.brand{display:flex;flex-direction:column;gap:4px;text-decoration:none;min-height:44px;justify-content:center}
+.brand .wm{display:flex;align-items:center;gap:6px}
+.brand b{font:900 1.32rem/1 var(--f-sans);font-stretch:88%;letter-spacing:.01em}
+.brand i{font:700 .8rem/1 var(--f-sans);font-style:normal;font-stretch:96%;background:var(--red);color:#fff;padding:3px 6px 4px;border-radius:2px}
+.brand small{font:500 .56rem/1 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;opacity:.7}
+.nav{display:flex;align-items:center;gap:clamp(14px,2.4vw,34px)}
+.nav a{font:600 .82rem/1 var(--f-sans);letter-spacing:.02em;text-decoration:none;padding:14px 0;opacity:.78;transition:opacity .2s}
+.nav a:hover{opacity:1}
+.nav .btn{min-height:40px;padding:.6em 1.05em;opacity:1}
+.menu-btn{display:none}
+@media (max-width:860px){
+  .menu-btn{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border:1.5px solid currentColor;border-radius:4px;background:none;color:inherit;cursor:pointer}
+  .menu-btn span{position:relative;width:18px;height:1.5px;background:currentColor}
+  .menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0;width:18px;height:1.5px;background:currentColor;transition:transform .25s}
+  .menu-btn span::before{top:-6px}.menu-btn span::after{top:6px}
+  .menu-btn[aria-expanded="true"] span{background:transparent}
+  .menu-btn[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
+  .menu-btn[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
+  .nav{position:fixed;inset:calc(var(--head) + env(safe-area-inset-top,0px)) 0 auto 0;flex-direction:column;align-items:stretch;gap:0;padding:8px max(var(--gut),env(safe-area-inset-right,0px)) 28px max(var(--gut),env(safe-area-inset-left,0px));background:var(--paper);color:var(--ink);border-bottom:1px solid var(--line)}
+  .nav:not(.open){display:none}
+  .nav a{font:800 2.2rem/1 var(--f-sans);font-stretch:70%;text-transform:uppercase;opacity:1;padding:16px 0;border-bottom:1px solid var(--line)}
+  .nav .btn{margin-top:20px;justify-content:center;font:700 .82rem/1 var(--f-sans);min-height:52px;border:0;color:#fff}
+}
+
+/* ---------- film: four kitchens, the ground takes each one's door colour ----------
+   Without .live (reduced motion, no JS, ?still) the chapters simply stack, each on its own colour. */
+.film{position:relative;--bg:#dbe4ee;background:var(--bg);color:var(--ink)}
+.film.tone-dark{color:var(--cream)}
+.film.live{height:calc(100vh * 6);height:calc(100svh * 6)}
+.film.live .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.chap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);align-items:center;gap:clamp(24px,4vw,72px);padding-block:calc(var(--head) + 28px) 40px}
+.chap .txt{max-width:34rem}
+.chap .num{display:flex;align-items:center;gap:12px;font:500 .72rem/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase}
+.chap .num i{width:14px;height:14px;border-radius:50%;background:var(--sw);box-shadow:0 0 0 1px currentColor}
+.chap h2{font-size:clamp(3.6rem,8.4vw,9rem);margin:18px 0 18px}
+.chap .kind{font:700 1.15rem/1.2 var(--f-sans);font-stretch:110%;margin:0 0 16px}
+.chap p{margin:0;max-width:28rem;opacity:.78}
+.chap .meta{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:22px;font:500 .7rem/1.4 var(--f-mono);letter-spacing:.08em;text-transform:uppercase}
+.chap .meta a{text-underline-offset:4px}
+.ph{position:relative;justify-self:end;width:auto;height:min(76vh,820px);height:min(76svh,820px);aspect-ratio:3/4;margin:0;overflow:hidden;border-radius:3px;background:rgba(0,0,0,.1)}
+.ph img{width:100%;height:100%;object-fit:cover;transform-origin:50% 60%;will-change:transform}
+.ph figcaption{position:absolute;left:12px;bottom:12px;font:500 .64rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(23,22,21,.66);padding:7px 9px;border-radius:2px}
+
+.film.live .chap{position:absolute;inset:0}
+.film.live .chap .txt{opacity:0;transform:translateY(22px);transition:opacity .5s,transform .5s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+.film.live .chap.on .txt{opacity:1;transform:none;pointer-events:auto}
+.film.live .chap ~ .chap .ph{clip-path:inset(100% 0 0 0)}
+/* the red edge that lifts with each new door */
+.seam{display:none}
+.film.live .seam{display:block;position:absolute;left:-6px;right:-6px;top:100%;height:3px;margin-top:-1.5px;background:var(--red);box-shadow:0 0 18px 2px rgba(211,19,47,.45);opacity:0;z-index:2}
+.ph-wrap{position:relative;justify-self:end}
+.ph-wrap .ph{justify-self:auto}
+
+.intro{position:absolute;left:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;width:min(46%,40rem);padding-top:var(--head);transition:opacity .5s,transform .5s;z-index:3}
+.film:not(.live) .intro{position:relative;width:auto;padding-block:calc(var(--head) + 48px) 8px}
+.intro h1{font-size:clamp(3.4rem,7.6vw,8.4rem)}
+.intro .eyebrow{max-width:none;margin:0;color:var(--red);font-size:.72rem}
+.intro p{max-width:30rem;margin:22px 0 0;color:var(--ink-dim);font-size:clamp(1rem,1.2vw,1.12rem)}
+.hint{display:flex;align-items:center;gap:14px;margin-top:30px;font:500 .72rem/1.4 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim)}
+.hint i{position:relative;width:1.5px;height:46px;background:var(--line);overflow:hidden}
+.hint i::after{content:"";position:absolute;left:0;top:-40%;width:1.5px;height:40%;background:var(--red);animation:drip 2.2s cubic-bezier(.6,0,.3,1) infinite}
+@keyframes drip{to{top:110%}}
+.film:not(.live) .hint{display:none}
+.intro.off{opacity:0;transform:translateY(-16px);pointer-events:none}
+
+.rail{display:none}
+.film.live .rail{display:flex;position:absolute;left:max(var(--gut),env(safe-area-inset-left,0px));bottom:clamp(24px,6vh,64px);gap:8px;z-index:4}
+.rail button{display:flex;align-items:center;gap:8px;min-height:40px;padding:0 12px 0 8px;border:1.5px solid transparent;border-radius:999px;background:none;color:inherit;font:500 .66rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;opacity:.62;transition:opacity .2s,border-color .3s}
+.rail button i{width:16px;height:16px;border-radius:50%;background:var(--sw);box-shadow:0 0 0 1px currentColor}
+.rail button.on{opacity:1;border-color:currentColor}
+
+.end{display:none}
+.film.live .end{display:flex;position:absolute;left:0;right:0;bottom:clamp(90px,14vh,150px);top:auto;flex-direction:column;gap:22px;width:min(46%,38rem);opacity:0;transform:translateY(20px);transition:opacity .5s,transform .5s;pointer-events:none;z-index:3}
+.film.live .end.on{opacity:1;transform:none;pointer-events:auto}
+.end h2{font-size:clamp(3rem,6vw,6.4rem)}
+.end .acts{display:flex;flex-wrap:wrap;gap:12px}
+
+@media (max-width:860px){
+  .chap{grid-template-columns:1fr;align-items:start;align-content:start;gap:20px;padding-block:calc(var(--head) + 8px) 32px}
+  .chap .ph,.ph-wrap{justify-self:stretch;order:-1}
+  .ph{width:100%;height:auto;aspect-ratio:4/4.4}
+  .film.live .ph{aspect-ratio:auto;height:46svh}
+  .chap h2{font-size:clamp(3rem,14vw,7rem);margin:12px 0 14px}
+  .chap .kind{font-size:1rem;margin-bottom:8px}
+  .chap p{font-size:.95rem}
+  .chap .meta{margin-top:12px}
+  .film.live .intro{top:auto;bottom:0;width:auto;justify-content:flex-start;padding-top:0;top:calc(var(--head) + env(safe-area-inset-top,0px) + 46svh + 28px);right:0}
+  .intro h1{font-size:clamp(2.7rem,13vw,4.2rem)}
+  .intro p{margin-top:12px;font-size:.95rem}
+  .hint{display:none}
+  .film.live .rail{left:0;right:0;justify-content:center;bottom:calc(14px + env(safe-area-inset-bottom,0px));padding-inline:var(--gut)}
+  .rail button{font-size:0;gap:0;padding:0 10px;min-height:40px;min-width:44px;justify-content:center}
+  .film.live .end{width:auto;right:0;bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+  .end h2{font-size:clamp(2.6rem,12vw,3.6rem)}
+}
+@media (min-width:600px) and (max-width:860px) and (min-height:900px){
+  .film.live .ph{height:54svh}
+  .film.live .intro{top:calc(var(--head) + 54svh + 28px)}
+}
+@media (max-width:860px) and (max-height:720px){
+  .film.live .ph{height:40svh}
+  .film.live .intro{top:calc(var(--head) + 40svh + 22px)}
+  .film.live .chap p{display:none}
+  .intro p{display:none}
+}
+.film:not(.live) .chap{background:var(--sw-bg);color:var(--sw-fg)}
+
+/* ---------- atölye ---------- */
+.studio{padding-block:clamp(88px,16vh,180px)}
+.studio-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(24px,3vw,48px);align-items:start}
+.studio .eyebrow{grid-column:1/-1}
+.studio h2{grid-column:1/span 8;font-size:clamp(3rem,7vw,7.4rem)}
+.studio .lede{grid-column:9/span 4;margin:0;padding-top:8px;color:var(--ink-dim);font-size:1.06rem}
+.studio .lede strong{color:var(--ink);font-weight:600}
+.facts{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:clamp(48px,8vh,88px) 0 0;border-top:2px solid var(--ink)}
+.facts div{padding:20px 24px 0 0;border-right:1px solid var(--line);margin-right:24px}
+.facts div:last-child{border-right:0;margin-right:0}
+.facts dt{font:500 .7rem/1.3 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.facts dd{margin:10px 0 0;font:700 1.35rem/1.15 var(--f-sans);font-stretch:85%}
+@media (max-width:900px){
+  .studio h2,.studio .lede{grid-column:1/-1}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .facts div{border-right:0;margin-right:0;border-bottom:1px solid var(--line);padding-bottom:20px}
+}
+
+/* ---------- işler ---------- */
+.works{background:var(--ink);color:var(--cream)}
+.works .eyebrow{color:#ff5a6e}
+.w-pin{position:relative}
+.w-sticky{position:sticky;top:0;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;gap:clamp(24px,5vh,48px);overflow:hidden;padding-block:calc(var(--head) + 24px) 40px}
+.w-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 40px}
+.w-head h2{font-size:clamp(3rem,5.6vw,5.8rem);margin-top:10px}
+.w-head p{margin:0;max-width:24rem;color:var(--cream-dim)}
+.track{display:flex;align-items:flex-end;gap:clamp(20px,3vw,48px);will-change:transform}
+.card{flex:none;margin:0;display:flex;flex-direction:column;gap:14px}
+.card a{text-decoration:none;display:block}
+.card .pic{overflow:hidden;background:#2a2826;border-radius:3px;height:min(44vh,500px);height:min(44svh,500px)}
+.card--p .pic{aspect-ratio:4/5}
+.card--s .pic{aspect-ratio:1/1}
+.card--l .pic{aspect-ratio:4/3}
+.card img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.card a:hover img{transform:scale(1.035)}
+.card figcaption{display:grid;gap:4px;max-width:24rem}
+.card .loc{font:500 .68rem/1.3 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:#ff5a6e}
+.card h3{font:800 1.9rem/1 var(--f-sans);font-stretch:70%;text-transform:uppercase}
+.card .scope{font-size:.9rem;color:var(--cream-dim)}
+.works-native .track{overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:14px;align-items:flex-start;scrollbar-width:thin;margin-right:calc(-1 * max(var(--gut),env(safe-area-inset-right,0px)));padding-right:max(var(--gut),env(safe-area-inset-right,0px))}
+.works-native .card{scroll-snap-align:start}
+@media (max-width:1023px){
+  .w-sticky{position:relative;min-height:0;padding-block:88px 72px}
+  .card .pic{height:auto;width:72vw}
+  .card--l .pic{width:80vw}
+  .card figcaption{max-width:72vw}
+}
+
+/* ---------- hizmetler ---------- */
+.services{padding-block:clamp(88px,15vh,170px)}
+.svc-head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;margin-bottom:clamp(40px,7vh,80px)}
+.svc-head > div{grid-column:1/span 7}
+.svc-head h2{font-size:clamp(3rem,6vw,6.2rem);margin-top:14px}
+.svc-head p{grid-column:9/span 4;margin:0;align-self:end;color:var(--ink-dim)}
+.svc{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,5vw,80px)}
+.svc-list{list-style:none;margin:0;padding:0 0 22vh;counter-reset:s}
+.svc-item{counter-increment:s;display:grid;grid-template-columns:3.4rem 1fr;padding:clamp(24px,4vh,40px) 0;border-top:1px solid var(--line)}
+.svc-item::before{content:counter(s,decimal-leading-zero);font:500 .74rem/2.6 var(--f-mono);color:var(--red)}
+.svc-item h3{font:800 clamp(2.2rem,4.4vw,4.2rem)/.92 var(--f-sans);font-stretch:68%;text-transform:uppercase;color:rgba(23,22,21,.24);transition:color .45s}
+.svc-item.on h3{color:var(--ink)}
+.svc-item p{margin:14px 0 0;max-width:32rem;color:var(--ink-dim)}
+.svc-item ul{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0;padding:0;list-style:none}
+.svc-item li{font:500 .66rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;padding:8px 10px;border:1px solid var(--line);border-radius:2px}
+.svc-item > div{grid-column:2}
+.svc-item .pic{display:none}
+.svc-frame{position:sticky;top:calc(var(--head) + 6vh);height:min(74vh,700px);margin:0;overflow:hidden;border-radius:3px;background:var(--paper-2)}
+.svc-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity .7s,transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.svc-frame img.on{opacity:1;transform:none}
+.svc-frame figcaption{position:absolute;left:12px;bottom:12px;font:500 .64rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(23,22,21,.7);padding:7px 9px;border-radius:2px}
+@media (max-width:900px){
+  .svc-head > div,.svc-head p{grid-column:1/-1}
+  .svc{grid-template-columns:1fr}
+  .svc-frame{display:none}
+  .svc-list{padding-bottom:0}
+  .svc-item{grid-template-columns:2.6rem 1fr}
+  .svc-item h3{color:var(--ink)}
+  .svc-item .pic{display:block;margin-top:20px;aspect-ratio:4/3;overflow:hidden;border-radius:3px}
+  .svc-item .pic img{width:100%;height:100%;object-fit:cover}
+}
+
+/* ---------- numuneler ---------- */
+.samples{background:var(--paper-2);padding-block:clamp(80px,14vh,150px)}
+.smp{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,110px);align-items:center}
+.smp .pic{margin:0;aspect-ratio:3/4;max-height:80vh;overflow:hidden;border-radius:3px}
+.smp .pic img{width:100%;height:100%;object-fit:cover}
+.smp h2{font-size:clamp(2.8rem,5.6vw,5.8rem);margin-top:14px}
+.smp > div > p:not(.eyebrow){color:var(--ink-dim);max-width:30rem;margin:22px 0 0}
+.swatches{list-style:none;margin:36px 0 0;padding:0;border-top:2px solid var(--ink)}
+.swatches li{display:grid;grid-template-columns:56px 1fr auto;align-items:center;gap:18px;padding:16px 0;border-bottom:1px solid var(--line)}
+.swatches i{width:56px;height:38px;border-radius:2px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+.swatches b{font:800 1.6rem/1 var(--f-sans);font-stretch:72%;text-transform:uppercase}
+.swatches span{font:500 .68rem/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);text-align:right}
+@media (max-width:900px){.smp{grid-template-columns:1fr}.smp .pic{max-height:none;aspect-ratio:4/4.6}}
+
+/* ---------- iletişim ---------- */
+.contact{background:var(--ink);color:var(--cream);padding-block:clamp(88px,15vh,170px)}
+.contact .eyebrow{color:#ff5a6e}
+.ct-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,110px)}
+.contact h2{font-size:clamp(3rem,6vw,6.2rem);margin-top:14px}
+.phones{display:grid;gap:2px;margin:36px 0 0}
+.phones a{font:800 clamp(2rem,3.4vw,3rem)/1.1 var(--f-sans);font-stretch:75%;text-decoration:none;font-variant-numeric:tabular-nums}
+.phones a:hover{color:#ff5a6e}
+.phones small{display:block;font:500 .66rem/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--cream-dim);margin-top:16px}
+.steps{list-style:none;margin:44px 0 0;padding:0;counter-reset:s;border-top:1px solid var(--cream-line)}
+.steps li{counter-increment:s;display:grid;grid-template-columns:3rem 1fr;gap:8px;padding:15px 0;border-bottom:1px solid var(--cream-line);color:var(--cream-dim);font-size:.95rem}
+.steps li::before{content:counter(s,decimal-leading-zero);font:500 .72rem/1.9 var(--f-mono);color:#ff5a6e}
+.steps b{color:var(--cream);font-weight:600}
+.form{display:grid;gap:18px;align-content:start}
+.form .row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{display:grid;gap:8px;min-width:0}
+.field label,.form legend{font:500 .7rem/1.3 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--cream-dim);padding:0}
+.field input,.field textarea{width:100%;min-height:50px;padding:12px 14px;background:transparent;border:1px solid var(--cream-line);border-radius:3px;color:var(--cream);font:400 1rem/1.4 var(--f-sans)}
+.field textarea{min-height:110px;resize:vertical}
+.field input:focus,.field textarea:focus{outline:none;border-color:#ff5a6e}
+.field [aria-invalid="true"]{border-color:#ff7b8b}
+.form fieldset{border:0;margin:0;padding:0;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chips label{position:relative}
+.chips input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.chips span{display:inline-flex;align-items:center;min-height:42px;padding:0 14px;border:1px solid var(--cream-line);border-radius:999px;font-size:.88rem;color:var(--cream-dim);transition:border-color .2s,color .2s,background .2s}
+.chips input:checked+span{border-color:var(--red);color:#fff;background:var(--red)}
+.chips input:focus-visible+span{outline:2px solid #ff5a6e;outline-offset:2px}
+.form .err{margin:0;color:#ff9aa6;font-size:.88rem;min-height:1.3em}
+.form .small{margin:0;font-size:.82rem;color:var(--cream-dim)}
+@media (max-width:900px){.ct-grid{grid-template-columns:1fr}}
+@media (max-width:520px){.form .row{grid-template-columns:1fr}}
+
+/* ---------- footer ---------- */
+.foot{background:var(--red);color:#fff;padding-block:clamp(56px,9vh,100px) calc(36px + env(safe-area-inset-bottom,0px))}
+.foot .big{font:900 clamp(4.6rem,19vw,19rem)/.8 var(--f-sans);font-stretch:66%;letter-spacing:-.01em;text-transform:uppercase;margin:0}
+.foot-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 40px;margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,.35);font:500 .7rem/1.6 var(--f-mono);letter-spacing:.08em;text-transform:uppercase}
+.foot-row a{text-decoration:none}
+.foot-row .handle{text-transform:none}
+.foot-row a:hover{text-decoration:underline}
+
+/* ---------- quick contact ---------- */
+.quick{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;display:flex;gap:10px;transition:opacity .3s,transform .3s}
+.quick a{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--ink);color:var(--paper);box-shadow:0 8px 24px rgba(0,0,0,.28)}
+.quick a.wa{background:#25d366;color:#fff}
+.quick svg{width:24px;height:24px}
+.quick.hide{opacity:0;transform:translateY(12px);pointer-events:none}
+
+/* ---------- reveals (only with JS and motion allowed) ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .js .rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+  .js .rv.in{opacity:1;transform:none}
+  .js .rv-img .pic{clip-path:inset(100% 0 0 0);transition:clip-path 1.1s cubic-bezier(.2,.7,.2,1)}
+  .js .rv-img.in .pic{clip-path:inset(0 0 0 0)}
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1 0-.3-.1-.5-.2Z"/></symbol>
+  <symbol id="i-tel" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2Z"/></symbol>
+</svg>
+
+<header class="top wrap" id="top">
+  <a class="brand" href="#film" aria-label="Hisar Mutfak, sayfa başı">
+    <span class="wm"><b>HİSAR</b><i>mutfak</i></span>
+    <small>mutfak · banyo · dekorasyon</small>
+  </a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menü"><span></span></button>
+  <nav class="nav" id="nav" aria-label="Ana menü">
+    <a href="#isler">İşler</a>
+    <a href="#hizmetler">Hizmetler</a>
+    <a href="#numuneler">Numuneler</a>
+    <a href="#iletisim">İletişim</a>
+    <a class="btn btn--red" href="#iletisim">Ücretsiz keşif</a>
+  </nav>
+</header>
+
+<main>
+  <section class="film" id="film" aria-label="Dört mutfak, dört renk">
+    <div class="stage">
+      <div class="intro wrap">
+        <p class="eyebrow">Hisar Mutfak · Muğla</p>
+        <h1 class="disp">Mutfağınız, <span class="r">sizin renginizde.</span></h1>
+        <p>Lake, soft ve panel kapaklı mutfaklar; banyo dolabı, gardırop ve TV ünitesi. Ölçüsünü alır, çizer, üretir ve kurarız.</p>
+        <div class="hint"><i></i>Kaydırın: dört ev, dört renk</div>
+      </div>
+
+      <!-- data-bg: the ground behind each kitchen (its door colour); data-tone: text on it -->
+      <article class="chap wrap" data-bg="#dbe4ee" data-tone="light" style="--sw:#b7c8de;--sw-bg:#dbe4ee;--sw-fg:var(--ink)">
+        <div class="txt">
+          <span class="num"><i></i>01 / 04 · Lake kapak</span>
+          <h2 class="disp">Light blue</h2>
+          <p class="kind">Çerçeveli lake kapak, camlı üst dolap</p>
+          <p>Açık mavi lake, pirinç kulplar ve vitrinli üst dolaplar. L planlı mutfakta ankastre fırın ve mikrodalga boy dolapta.</p>
+          <div class="meta"><span>Muğla · Ekim 2026</span><a href="https://www.instagram.com/p/DfC8mPjDXFf/" target="_blank" rel="noopener">Instagram’da gör</a></div>
+        </div>
+        <div class="ph-wrap"><figure class="ph"><img src="img/lightblue.webp" width="480" height="640" fetchpriority="high" alt="Açık mavi çerçeveli lake kapaklı L mutfak, pirinç kulplar ve camlı üst dolaplar"></figure></div>
+      </article>
+
+      <article class="chap wrap" data-bg="#22402b" data-tone="dark" style="--sw:#3d6b47;--sw-bg:#22402b;--sw-fg:var(--cream)">
+        <div class="txt">
+          <span class="num"><i></i>02 / 04 · Gönçük kapak</span>
+          <h2 class="disp">Yeşil</h2>
+          <p class="kind">Yeşil lake gönçük kapak, ceviz boy dolap</p>
+          <p>Ahşap tavanlı bir evde koyu yeşil lake kapaklar; ceviz boy dolap ve mermer desenli tezgâh arası. Sizin tarzınıza göre çizilir.</p>
+          <div class="meta"><span>Muğla · Haziran 2025</span><a href="https://www.instagram.com/p/DKmZNk3IuL8/" target="_blank" rel="noopener">Instagram’da gör</a></div>
+        </div>
+        <div class="ph-wrap"><figure class="ph"><img src="img/yesil.webp" width="512" height="640" loading="lazy" alt="Koyu yeşil gönçük lake kapaklı mutfak, ceviz boy dolap ve mermer desenli tezgâh arası"></figure><i class="seam"></i></div>
+      </article>
+
+      <article class="chap wrap" data-bg="#3a3c3e" data-tone="dark" style="--sw:#7d7f81;--sw-bg:#3a3c3e;--sw-fg:var(--cream)">
+        <div class="txt">
+          <span class="num"><i></i>03 / 04 · Kapak yenileme</span>
+          <h2 class="disp">Antrasit</h2>
+          <p class="kind">Aynı gövde, yeni yüz</p>
+          <p>Kullanılan bir mutfakta yalnızca kapakları değiştirdik: yıkım yok, gövde ve tezgâh yerinde. Parlak gri panel kapak, uzun boy üst dolaplar.</p>
+          <div class="meta"><span>Muğla · Ekim 2026</span><a href="https://www.instagram.com/p/DeZHiugDYJM/" target="_blank" rel="noopener">Instagram’da gör</a></div>
+        </div>
+        <div class="ph-wrap"><figure class="ph"><img src="img/antrasit.webp" width="480" height="640" loading="lazy" alt="Kapakları parlak gri panel kapakla yenilenmiş uzun mutfak"></figure><i class="seam"></i></div>
+      </article>
+
+      <article class="chap wrap" data-bg="#171513" data-tone="dark" style="--sw:#2b2a28;--sw-bg:#171513;--sw-fg:var(--cream)">
+        <div class="txt">
+          <span class="num"><i></i>04 / 04 · Gizli LED</span>
+          <h2 class="disp">Füme <span class="r">&amp;</span> ışık</h2>
+          <p class="kind">Kulpsuz lake, gizli LED, oluklu cam</p>
+          <p>Gizli LED’li asma tavan, tezgâh altı ışık, ankastre boy dolap ve oluklu cam vitrin. Akşam olunca mutfak kendi ışığıyla yanar.</p>
+          <div class="meta"><span>Menteşe · Ekim 2026</span><a href="https://www.instagram.com/p/DeCjxesjQKt/" target="_blank" rel="noopener">Instagram’da gör</a></div>
+        </div>
+        <div class="ph-wrap"><figure class="ph"><img src="img/mentese.webp" width="480" height="640" loading="lazy" alt="Menteşe’de füme ve açık gri kulpsuz mutfak, gizli LED tavan, sarkıt lambalar ve oluklu cam vitrin"></figure><i class="seam"></i></div>
+      </article>
+
+      <div class="end wrap">
+        <h2 class="disp">Sıradaki mutfak <span class="r">sizinki.</span></h2>
+        <div class="acts">
+          <a class="btn btn--red" href="#iletisim">Ücretsiz keşif iste</a>
+          <a class="btn btn--ghost" href="#isler"><span>İşleri gör</span></a>
+        </div>
+      </div>
+
+      <nav class="rail" aria-label="Renkler">
+        <button type="button" data-go="1.3" style="--sw:#b7c8de"><i></i>Light blue</button>
+        <button type="button" data-go="4.2" style="--sw:#3d6b47"><i></i>Yeşil</button>
+        <button type="button" data-go="6.8" style="--sw:#7d7f81"><i></i>Antrasit</button>
+        <button type="button" data-go="9" style="--sw:#2b2a28"><i></i>Füme</button>
+      </nav>
+    </div>
+  </section>
+
+  <section class="studio wrap" id="atolye" aria-labelledby="atolye-h">
+    <div class="studio-grid">
+      <p class="eyebrow rv">Atölye · Muğla</p>
+      <h2 id="atolye-h" class="disp rv">Ölçer, çizer, <span class="r">üretir, kurarız.</span></h2>
+      <p class="lede rv"><strong>Hisar Mutfak</strong>, Muğla’da mutfak, banyo ve dekorasyon üzerine çalışır. Keşfe gelip ölçüyü kendimiz alıyor, mutfağınızı çiziyor, dolabından kapağına hazırlayıp montajını yapıyoruz. Bir telefon kadar yakınız.</p>
+      <dl class="facts rv">
+        <div><dt>İlk adım</dt><dd>Ücretsiz keşif ve mutfak çizimi</dd></div>
+        <div><dt>Kapaklar</dt><dd>Lake, soft, panel, gönçük</dd></div>
+        <div><dt>Ürünler</dt><dd>Mutfak, banyo, gardırop, TV ünitesi</dd></div>
+        <div><dt>Bölge</dt><dd>Menteşe, Ula, Yatağan, Bodrum</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="works" id="isler" aria-labelledby="isler-h">
+    <div class="w-pin">
+      <div class="w-sticky wrap">
+        <div class="w-head">
+          <div>
+            <p class="eyebrow">İşler</p>
+            <h2 id="isler-h" class="disp">Kızılağaç’tan Bodrum’a.</h2>
+          </div>
+          <p>Mutfaktan vestiyere, ölçüsü alınıp üretilen ve kurulan işler. Fotoğraflar Hisar Mutfak’ın kendi paylaşımlarından.</p>
+        </div>
+        <div class="track">
+          <figure class="card card--s">
+            <a href="https://www.instagram.com/p/DPGwH0zjfqd/" target="_blank" rel="noopener"><div class="pic"><img src="img/kizilagac.webp" width="640" height="640" loading="lazy" alt="Açık gri kulpsuz lake mutfak, mermer desenli tezgâh arası ve kristal avize"></div></a>
+            <figcaption><span class="loc">Kızılağaç</span><h3>Lake mutfak &amp; banyo</h3><span class="scope">Kulpsuz açık gri lake mutfak dolabı ve banyo dolabı, aynı evde.</span></figcaption>
+          </figure>
+          <figure class="card card--p">
+            <a href="https://www.instagram.com/p/DKmtDQhI-tQ/" target="_blank" rel="noopener"><div class="pic"><img src="img/soft.webp" width="512" height="640" loading="lazy" alt="Antrasit üst ve alt dolaplı, ahşap kenar detaylı küçük mutfak"></div></a>
+            <figcaption><span class="loc">Bodrum</span><h3>Soft kapak</h3><span class="scope">Kendinden kulplu soft kapak, antrasit ve ahşap.</span></figcaption>
+          </figure>
+          <figure class="card card--s">
+            <a href="https://www.instagram.com/p/DPE_B_KDW_b/" target="_blank" rel="noopener"><div class="pic"><img src="img/vestiyer.webp" width="640" height="640" loading="lazy" alt="Girişte sürme kapaklı, bronz aynalı boy vestiyer"></div></a>
+            <figcaption><span class="loc">Ula</span><h3>Vestiyer</h3><span class="scope">Sürme kapak ve bronz ayna, giriş holünün boyunca.</span></figcaption>
+          </figure>
+          <figure class="card card--p">
+            <a href="https://www.instagram.com/p/DKeS6gTo-ig/" target="_blank" rel="noopener"><div class="pic"><img src="img/dresuar.webp" width="512" height="640" loading="lazy" alt="CNC kesim çıtalı lake dresuar, arkadan aydınlatmalı yuvarlak ayna"></div></a>
+            <figcaption><span class="loc">Muğla</span><h3>CNC dresuar</h3><span class="scope">CNC kesim lake panel, LED aynalı dresuar.</span></figcaption>
+          </figure>
+          <figure class="card card--p">
+            <a href="https://www.instagram.com/p/DMiYQIqoNQn/" target="_blank" rel="noopener"><div class="pic"><img src="img/tvunite.webp" width="512" height="640" loading="lazy" alt="Beyaz ve ahşap tezgâhlı TV ünitesi, duvarda ahşap raflar"></div></a>
+            <figcaption><span class="loc">Yeşilyurt</span><h3>TV ünitesi</h3><span class="scope">Beyaz gövde, ahşap tabla ve yan raflar.</span></figcaption>
+          </figure>
+          <figure class="card card--l">
+            <a href="https://www.instagram.com/p/DJXC5y5oyjZ/" target="_blank" rel="noopener"><div class="pic"><img src="img/gardrop.webp" width="640" height="481" loading="lazy" alt="Duvar boyu beyaz sürgülü gardırop"></div></a>
+            <figcaption><span class="loc">Yatağan</span><h3>Sürgülü gardırop</h3><span class="scope">Duvar boyu, müşterinin istediği bölmelerle.</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services wrap" id="hizmetler" aria-labelledby="svc-h">
+    <div class="svc-head">
+      <div>
+        <p class="eyebrow">Hizmetler</p>
+        <h2 id="svc-h" class="disp">Mutfaktan girişe, <span class="r">tek atölye.</span></h2>
+      </div>
+      <p>Yalnızca kapakları değiştirmek de olur, evin bütün dolapları da. Hepsi aynı yerden başlar: ölçü ve çizim.</p>
+    </div>
+    <div class="svc">
+      <ol class="svc-list">
+        <li class="svc-item" data-img="0"><div>
+          <h3>Mutfak dolabı</h3>
+          <p>Ölçüye göre çizilen ve üretilen mutfak: lake, soft, panel ya da gönçük kapak; kulplu, kulpsuz veya kendinden kulplu.</p>
+          <ul><li>Lake</li><li>Soft</li><li>Panel</li><li>Gönçük</li></ul>
+          <div class="pic"><img src="img/kizilagac.webp" width="640" height="640" loading="lazy" alt="Açık gri kulpsuz lake mutfak"></div>
+        </div></li>
+        <li class="svc-item" data-img="1"><div>
+          <h3>Kapak yenileme</h3>
+          <p>Gövdeniz sağlamsa mutfağı sökmeden yalnızca kapakları yeniliyoruz. Renk ve model değişir, mutfak yerinde kalır.</p>
+          <ul><li>Yıkımsız</li><li>Panel kapak</li><li>Lake kapak</li></ul>
+          <div class="pic"><img src="img/antrasit.webp" width="480" height="640" loading="lazy" alt="Kapakları yenilenmiş gri mutfak"></div>
+        </div></li>
+        <li class="svc-item" data-img="2"><div>
+          <h3>Banyo &amp; vestiyer</h3>
+          <p>Banyo dolabı, ayakkabılık ve vestiyer; sürme kapak, bronz ayna ve ölçüye göre bölmeler.</p>
+          <ul><li>Banyo dolabı</li><li>Vestiyer</li><li>Sürme kapak</li></ul>
+          <div class="pic"><img src="img/vestiyer.webp" width="640" height="640" loading="lazy" alt="Bronz aynalı sürme kapaklı vestiyer"></div>
+        </div></li>
+        <li class="svc-item" data-img="3"><div>
+          <h3>Gardırop</h3>
+          <p>Duvar boyu sürgülü ya da kapaklı gardırop, iç bölmeleri sizin düzeninize göre.</p>
+          <ul><li>Sürgülü</li><li>Kapaklı</li><li>İç düzen</li></ul>
+          <div class="pic"><img src="img/gardrop.webp" width="640" height="481" loading="lazy" alt="Beyaz sürgülü gardırop"></div>
+        </div></li>
+        <li class="svc-item" data-img="4"><div>
+          <h3>TV ünitesi &amp; dresuar</h3>
+          <p>CNC kesim lake paneller, LED aynalar ve ahşap tablalarla salonun ve girişin parçaları.</p>
+          <ul><li>CNC kesim</li><li>TV ünitesi</li><li>Dresuar</li></ul>
+          <div class="pic"><img src="img/dresuar.webp" width="512" height="640" loading="lazy" alt="CNC kesim lake dresuar ve LED ayna"></div>
+        </div></li>
+      </ol>
+      <figure class="svc-frame" aria-hidden="true">
+        <img class="on" src="img/kizilagac.webp" alt="" loading="lazy">
+        <img src="img/antrasit.webp" alt="" loading="lazy">
+        <img src="img/vestiyer.webp" alt="" loading="lazy">
+        <img src="img/gardrop.webp" alt="" loading="lazy">
+        <img src="img/dresuar.webp" alt="" loading="lazy">
+        <figcaption>Hisar Mutfak işlerinden</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="samples wrap" id="numuneler" aria-labelledby="smp-h">
+    <div class="smp">
+      <figure class="pic rv"><img src="img/kasmir.webp" width="480" height="640" loading="lazy" alt="Kaşmir, ceviz ve krem porselen numuneleri üst üste"></figure>
+      <div>
+        <p class="eyebrow rv">Numuneler</p>
+        <h2 id="smp-h" class="disp rv">Rengi ekranda değil, <span class="r">elinizde seçin.</span></h2>
+        <p class="rv">Kapak, gövde ve tezgâh numunelerini keşifte yanımızda getiriyoruz. Evinizin ışığında yan yana koyup karar verirsiniz.</p>
+        <ul class="swatches rv">
+          <li><i style="background:#e6d9c6"></i><b>Kaşmir</b><span>Kapak · gövde</span></li>
+          <li><i style="background:linear-gradient(90deg,#6c4a2e,#8a6240 40%,#5d3f27 70%,#7a5537)"></i><b>Ceviz</b><span>Boy dolap · tabla</span></li>
+          <li><i style="background:linear-gradient(120deg,#efe6d6,#e4d6bf 60%,#efe5d3)"></i><b>Krem porselen</b><span>Tezgâh · tezgâh arası</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact wrap" id="iletisim" aria-labelledby="ct-h">
+    <div class="ct-grid">
+      <div>
+        <p class="eyebrow">İletişim</p>
+        <h2 id="ct-h" class="disp">Ücretsiz keşif için <span class="r">bir telefon</span> yeter.</h2>
+        <div class="phones">
+          <small>Telefon · WhatsApp</small>
+          <a href="tel:+905325937622">0532 593 76 22</a>
+          <small>Telefon</small>
+          <a href="tel:+905372644887">0537 264 48 87</a>
+        </div>
+        <ol class="steps">
+          <li><span><b>Keşif ve ölçü.</b> Evinize gelip ölçü alırız, ücretsizdir.</span></li>
+          <li><span><b>Çizim.</b> Yerleşimi, kapağı ve rengi çizim üzerinde birlikte seçeriz.</span></li>
+          <li><span><b>Üretim.</b> Dolaplar ve kapaklar çizimdeki ölçüyle hazırlanır.</span></li>
+          <li><span><b>Montaj.</b> Kurulumu kendi ekibimiz yapar.</span></li>
+        </ol>
+      </div>
+      <form class="form" id="ct-form" novalidate>
+        <div class="row">
+          <div class="field"><label for="ct-name">Ad soyad</label><input id="ct-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="ct-tel">Telefon</label><input id="ct-tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" required></div>
+        </div>
+        <div class="field"><label for="ct-where">İlçe / mahalle</label><input id="ct-where" name="where" placeholder="Örn. Menteşe, Kötekli"></div>
+        <fieldset>
+          <legend>Ne istiyorsunuz?</legend>
+          <div class="chips">
+            <label><input type="checkbox" name="need" value="Mutfak dolabı"><span>Mutfak dolabı</span></label>
+            <label><input type="checkbox" name="need" value="Kapak yenileme"><span>Kapak yenileme</span></label>
+            <label><input type="checkbox" name="need" value="Banyo dolabı"><span>Banyo dolabı</span></label>
+            <label><input type="checkbox" name="need" value="Gardırop"><span>Gardırop</span></label>
+            <label><input type="checkbox" name="need" value="TV ünitesi / dresuar"><span>TV ünitesi / dresuar</span></label>
+          </div>
+        </fieldset>
+        <div class="field"><label for="ct-note">Not</label><textarea id="ct-note" name="note" placeholder="Mutfağın ölçüsü, istediğiniz renk, uygun gün…"></textarea></div>
+        <p class="err" id="ct-err" role="alert"></p>
+        <a class="btn btn--red" id="ct-send" href="https://wa.me/905325937622" target="_blank" rel="noopener" style="justify-self:start"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp’tan gönder</a>
+        <p class="small">Mesaj WhatsApp’ta sizin hesabınızdan açılır; göndermeden önce düzenleyebilirsiniz.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot wrap">
+  <p class="big">Hisar mutfak</p>
+  <div class="foot-row">
+    <span>Mutfak · Banyo · Dekorasyon · Muğla</span>
+    <a href="https://www.instagram.com/hisarmutfakmugla/" target="_blank" rel="noopener">INSTAGRAM · <span class="handle">@hisarmutfakmugla</span></a>
+    <a href="#film">Başa dön ↑</a>
+  </div>
+</footer>
+
+<div class="quick" id="quick">
+  <a class="wa" href="https://wa.me/905325937622?text=Merhaba%2C%20web%20sitenizden%20ula%C5%9F%C4%B1yorum." target="_blank" rel="noopener" aria-label="WhatsApp ile yazın"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
+  <a href="tel:+905325937622" aria-label="Arayın: 0532 593 76 22"><svg aria-hidden="true"><use href="#i-tel"/></svg></a>
+</div>
+
+<script>
+document.documentElement.classList.add('js');
+(() => {
+  const WA = '905325937622';
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // header: follows the film's tone, solid once past it; mobile menu
+  const top = $('#top'), film = $('#film'), quick = $('#quick');
+  const btn = $('.menu-btn'), nav = $('#nav');
+  btn.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') !== 'true';
+    btn.setAttribute('aria-expanded', open); nav.classList.toggle('open', open);
+  });
+  nav.addEventListener('click', e => { if (e.target.closest('a')) { btn.setAttribute('aria-expanded', 'false'); nav.classList.remove('open'); } });
+  addEventListener('keydown', e => { if (e.key === 'Escape' && nav.classList.contains('open')) { btn.click(); btn.focus(); } });
+  const onScroll = () => {
+    const filmEnd = film.offsetTop + film.offsetHeight - innerHeight;
+    // a still film is ordinary content, so the header settles as soon as the page moves
+    const past = film.classList.contains('live') ? scrollY > filmEnd - 10 : scrollY > 40;
+    top.classList.toggle('solid', past);
+    top.classList.toggle('dark', !past && film.classList.contains('tone-dark'));
+    const ct = $('#iletisim').getBoundingClientRect();
+    // the film's end screen has its own buttons and the colour rail where these would sit
+    quick.classList.toggle('hide', scrollY < filmEnd + innerHeight * .6 ||(ct.top < innerHeight * .6 && ct.bottom > 0));
+  };
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  // reveals
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -12% 0px' });
+  $$('.rv').forEach(el => io.observe(el));
+  $$('.card').forEach(el => { el.classList.add('rv-img'); io.observe(el); });
+
+  // works: vertical scroll drives the track sideways on wide screens with a fine pointer; elsewhere native swipe
+  const pin = $('.w-pin'), track = $('.track'), works = $('#isler');
+  let pinned = false, extra = 0;
+  const pinMQ = matchMedia('(min-width:1024px) and (pointer:fine) and (prefers-reduced-motion:no-preference)');
+  function layoutWorks() {
+    pinned = pinMQ.matches;
+    works.classList.toggle('works-native', !pinned);
+    track.style.transform = '';
+    if (!pinned) { pin.style.height = ''; return; }
+    const gut = parseFloat(getComputedStyle(track.parentElement).paddingRight) || 0;
+    extra = Math.max(0, track.scrollWidth - track.parentElement.clientWidth + gut * 2);
+    pin.style.height = (innerHeight + extra) + 'px';
+    moveWorks();
+  }
+  function moveWorks() {
+    if (!pinned) return;
+    const r = pin.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, -r.top / Math.max(1, r.height - innerHeight)));
+    track.style.transform = `translate3d(${(-p * extra).toFixed(1)}px,0,0)`;
+  }
+  track.addEventListener('focusin', e => {
+    if (!pinned) return;
+    const card = e.target.closest('.card'); if (!card) return;
+    const want = Math.min(extra, Math.max(0, card.offsetLeft - innerWidth * .2));
+    scrollTo({ top: pin.offsetTop + want, behavior: 'auto' });
+  });
+  addEventListener('scroll', moveWorks, { passive: true });
+  addEventListener('resize', layoutWorks);
+  pinMQ.addEventListener('change', layoutWorks);
+  addEventListener('load', layoutWorks); layoutWorks();
+
+  // services: the row at the middle of the screen is lit and shows its picture
+  const items = $$('.svc-item'), frames = $$('.svc-frame img');
+  const sio = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    items.forEach(i => i.classList.toggle('on', i === e.target));
+    const k = +e.target.dataset.img; frames.forEach((f, j) => f.classList.toggle('on', j === k));
+  }), { rootMargin: '-45% 0px -45% 0px' });
+  items.forEach(i => sio.observe(i)); items[0].classList.add('on');
+
+  // contact form → WhatsApp message (no server)
+  const form = $('#ct-form'), send = $('#ct-send'), err = $('#ct-err');
+  function contactMessage() {
+    const f = new FormData(form), needs = f.getAll('need');
+    return ['Merhaba Hisar Mutfak, ücretsiz keşif için yazıyorum.',
+      `Ad: ${f.get('name').trim()}`, `Telefon: ${f.get('tel').trim()}`,
+      f.get('where').trim() && `Yer: ${f.get('where').trim()}`,
+      needs.length && `İstek: ${needs.join(', ')}`,
+      f.get('note').trim() && `Not: ${f.get('note').trim()}`].filter(Boolean).join('\n');
+  }
+  const syncContact = () => { send.href = `https://wa.me/${WA}?text=${encodeURIComponent(contactMessage())}`; };
+  form.addEventListener('input', syncContact); form.addEventListener('change', syncContact); syncContact();
+  send.addEventListener('click', e => {
+    const bad = ['#ct-name', '#ct-tel'].map(s => $(s)).filter(i => !i.value.trim() || (i.type === 'tel' && i.value.replace(/\D/g, '').length < 10));
+    $$('#ct-name,#ct-tel').forEach(i => i.removeAttribute('aria-invalid'));
+    if (bad.length) {
+      e.preventDefault();
+      bad.forEach(i => i.setAttribute('aria-invalid', 'true'));
+      err.textContent = bad[0].id === 'ct-name' ? 'Adınızı yazın, size nasıl hitap edeceğimizi bilelim.' : 'Telefon numaranızı alan koduyla yazın (en az 10 rakam).';
+      bad[0].focus();
+    } else err.textContent = '';
+  });
+  form.addEventListener('submit', e => e.preventDefault());
+
+  // film: scroll → film time 0–10 → each new kitchen lifts up from below like a door, the ground takes its colour
+  (() => {
+    if (reduce || new URLSearchParams(location.search).has('still')) return;
+    film.classList.add('live');
+    const T_END = 10;
+    const WIPES = [[2.4, 3.4], [5.0, 6.0], [7.6, 8.6]];   // chapters 2, 3, 4 come in here
+    const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+    const smooth = (a, b, v) => { const x = clamp((v - a) / (b - a)); return x * x * (3 - 2 * x); };
+    const hex = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+    const chaps = $$('.chap', film).map(el => ({ el, bg: hex(el.dataset.bg), dark: el.dataset.tone === 'dark', ph: $('.ph', el), img: $('img', el), seam: $('.seam', el) }));
+    const intro = $('.intro', film), endEl = $('.end', film), railBtns = $$('.rail button', film);
+    // the photos are lazy below the first; the film shows them all, so start them now
+    chaps.forEach(c => { c.img.loading = 'eager'; });
+
+    function apply(t) {
+      const w = [1, ...WIPES.map(([a, b]) => smooth(a, b, t))];
+      let col = chaps[0].bg;
+      for (let i = 1; i < chaps.length; i++) col = col.map((v, j) => v + (chaps[i].bg[j] - v) * w[i]);
+      film.style.setProperty('--bg', `rgb(${col.map(Math.round).join(',')})`);
+      let tone = 0; for (let i = 1; i < chaps.length; i++) if (w[i] > .5) tone = i;
+      film.classList.toggle('tone-dark', chaps[tone].dark);
+
+      const ci = t < 2.9 ? 0 : t < 5.5 ? 1 : t < 8.1 ? 2 : 3;
+      const showEnd = t > 9.3;
+      chaps.forEach((c, i) => {
+        c.el.classList.toggle('on', i === ci && !(i === 0 && t < .35) && !showEnd);
+        if (i > 0) {
+          const edge = (1 - w[i]) * 100;
+          c.ph.style.clipPath = `inset(${edge.toFixed(2)}% 0 0 0)`;
+          c.seam.style.top = edge + '%';
+          c.seam.style.opacity = w[i] > 0 && w[i] < 1 ? 1 : 0;
+        }
+        // each photo settles from a slight push-in over its own time on screen
+        const start = i ? WIPES[i - 1][0] : 0;
+        c.img.style.transform = `scale(${(1.1 - .1 * clamp((t - start) / 3.2)).toFixed(4)})`;
+      });
+      intro.classList.toggle('off', t > .35);
+      endEl.classList.toggle('on', showEnd);
+      railBtns.forEach((b, i) => { b.classList.toggle('on', i === ci); b.setAttribute('aria-current', i === ci ? 'step' : 'false'); });
+      onScroll();
+    }
+
+    // ease towards the scroll target so wheel steps glide; stop when settled
+    let target = 0, cur = 0, raf = 0, last = 0;
+    function tick(now) {
+      const dt = Math.min(.1, (now - (last || now - 16)) / 1000); last = now;
+      cur += (target - cur) * Math.min(1, dt * 10);
+      if (Math.abs(target - cur) < .002) cur = target;
+      apply(cur);
+      raf = cur === target ? 0 : requestAnimationFrame(tick);
+      if (!raf) last = 0;
+    }
+    function read() {
+      const r = film.getBoundingClientRect();
+      target = clamp(-r.top / Math.max(1, r.height - innerHeight)) * T_END;
+      if (!raf) raf = requestAnimationFrame(tick);
+    }
+    addEventListener('scroll', read, { passive: true });
+    addEventListener('resize', read);
+    railBtns.forEach(b => b.addEventListener('click', () => {
+      scrollTo({ top: film.offsetTop + (+b.dataset.go / T_END) * (film.offsetHeight - innerHeight), behavior: 'smooth' });
+    }));
+    read(); cur = target; apply(cur);
+  })();
+})();
+</script>
