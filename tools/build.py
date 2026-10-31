@@ -70,6 +70,7 @@ def main():
         f.write(FAVICON)
     share_image(os.path.join(DIST, "og.jpg"))
     shutil.copytree(os.path.join(ROOT, "img"), os.path.join(DIST, "img"))
+    shutil.copy(os.path.join(ROOT, "vercel.json"), DIST)
 
     size = sum(os.path.getsize(os.path.join(d, n)) for d, _, ns in os.walk(DIST) for n in ns)
     print(f"dist/ built, {size / 1e6:.2f} MB" + (f", site {SITE}" if SITE else ""))

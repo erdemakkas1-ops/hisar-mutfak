@@ -14,6 +14,14 @@ cp -r dist/index.html dist/favicon.svg dist/og.jpg dist/img pages/
 cd pages && git add -A && git commit -m "Update site" && git push
 ```
 
+Also on Vercel: https://hisar-mutfak.vercel.app (project `hisar-mutfak`, account erdemakkas1-2640).
+`*.vercel.app` is blocked on some Turkish networks, so share the Pages link there. To update it:
+
+```bash
+py -3 tools/build.py https://hisar-mutfak.vercel.app
+cd dist && npx vercel deploy --prod --yes
+```
+
 ## The film
 
 Six keyframes of one kitchen from one camera (`img/film/`, 1920 × 1080 and 1080 × 1920 for phones),
