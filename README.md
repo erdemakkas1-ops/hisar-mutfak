@@ -5,6 +5,15 @@ cabinets, wardrobes, TV units and consoles in Muğla. Same family as the Arkhera
 (a pinned opener scrubbed by page scroll, then editorial sections), with its own identity: warm
 paper ground, ink and the red of their logo's "mutfak" tag, Archivo condensed for display type.
 
+Live: https://erdemakkas1-ops.github.io/hisar-mutfak/ (GitHub Pages, repo `erdemakkas1-ops/hisar-mutfak`,
+branch `gh-pages`). `pages/` is a checkout of `gh-pages` (kept out of git). To update the live site:
+
+```bash
+py -3 tools/build.py https://erdemakkas1-ops.github.io/hisar-mutfak
+cp -r dist/index.html dist/favicon.svg dist/og.jpg dist/img pages/
+cd pages && git add -A && git commit -m "Update site" && git push
+```
+
 ## The film
 
 Four of Hisar's own kitchens, scrubbed by scroll over film seconds 0–10:
