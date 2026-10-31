@@ -76,88 +76,100 @@ h3{margin:0}
   .nav .btn{margin-top:20px;justify-content:center;font:700 .82rem/1 var(--f-sans);min-height:52px;border:0;color:#fff}
 }
 
-/* ---------- film: four kitchens, the ground takes each one's door colour ----------
-   Without .live (reduced motion, no JS, ?still) the chapters simply stack, each on its own colour. */
-.film{position:relative;--bg:#dbe4ee;background:var(--bg);color:var(--ink)}
-.film.tone-dark{color:var(--cream)}
-.film.live{height:calc(100vh * 6);height:calc(100svh * 6)}
+/* ---------- film: one kitchen from empty room to delivery, then its doors in three colours ----------
+   Six keyframes from one camera, scrubbed by scroll. Without .live (reduced motion, no JS, ?still)
+   it is a still of the finished kitchen with the chapters as text. */
+.film{position:relative;background:var(--ink);color:var(--cream)}
+.stage{position:relative}
+.film.live{height:calc(100vh * 7.5);height:calc(100svh * 7.5)}
 .film.live .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
-.chap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);align-items:center;gap:clamp(24px,4vw,72px);padding-block:calc(var(--head) + 28px) 40px}
-.chap .txt{max-width:34rem}
-.chap .num{display:flex;align-items:center;gap:12px;font:500 .72rem/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase}
-.chap .num i{width:14px;height:14px;border-radius:50%;background:var(--sw);box-shadow:0 0 0 1px currentColor}
-.chap h2{font-size:clamp(3.6rem,8.4vw,9rem);margin:18px 0 18px}
-.chap .kind{font:700 1.15rem/1.2 var(--f-sans);font-stretch:110%;margin:0 0 16px}
-.chap p{margin:0;max-width:28rem;opacity:.78}
-.chap .meta{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:22px;font:500 .7rem/1.4 var(--f-mono);letter-spacing:.08em;text-transform:uppercase}
-.chap .meta a{text-underline-offset:4px}
-.ph{position:relative;justify-self:end;width:auto;height:min(76vh,820px);height:min(76svh,820px);aspect-ratio:3/4;margin:0;overflow:hidden;border-radius:3px;background:rgba(0,0,0,.1)}
-.ph img{width:100%;height:100%;object-fit:cover;transform-origin:50% 60%;will-change:transform}
-.ph figcaption{position:absolute;left:12px;bottom:12px;font:500 .64rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(23,22,21,.66);padding:7px 9px;border-radius:2px}
-
-.film.live .chap{position:absolute;inset:0}
-.film.live .chap .txt{opacity:0;transform:translateY(22px);transition:opacity .5s,transform .5s cubic-bezier(.2,.7,.2,1);pointer-events:none}
-.film.live .chap.on .txt{opacity:1;transform:none;pointer-events:auto}
-.film.live .chap ~ .chap .ph{clip-path:inset(100% 0 0 0)}
-/* the red edge that lifts with each new door */
+.frames{position:absolute;inset:0;transform-origin:50% 55%;will-change:transform}
+.fr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fr:not(.fr-4){display:none}
+.film.live .fr{display:block}
+.film.live .fr-2 img,.film.live .fr-3 img{opacity:0}
+/* the finished kitchen and its two recolours lift up from below like a door */
+.film.live .fr-4 img,.film.live .fr-5 img,.film.live .fr-6 img{clip-path:inset(100% 0 0 0)}
 .seam{display:none}
-.film.live .seam{display:block;position:absolute;left:-6px;right:-6px;top:100%;height:3px;margin-top:-1.5px;background:var(--red);box-shadow:0 0 18px 2px rgba(211,19,47,.45);opacity:0;z-index:2}
-.ph-wrap{position:relative;justify-self:end}
-.ph-wrap .ph{justify-self:auto}
+.film.live .seam{display:block;position:absolute;left:0;right:0;top:100%;height:3px;margin-top:-1.5px;background:var(--red);box-shadow:0 0 18px 3px rgba(211,19,47,.5);opacity:0}
+.scrim{position:absolute;inset:0;pointer-events:none;background:
+  linear-gradient(0deg,rgba(23,22,21,.88),rgba(23,22,21,.5) 36%,rgba(23,22,21,0) 58%),
+  linear-gradient(rgba(23,22,21,.6),rgba(23,22,21,0) 20%)}
+/* only while the headline shows */
+.scrim-intro{background:linear-gradient(90deg,rgba(23,22,21,.88),rgba(23,22,21,.62) 38%,rgba(23,22,21,0) 66%);transition:opacity .5s}
+.scrim-intro.off{opacity:0}
+.film:not(.live) .scrim-intro{display:none}
 
-.intro{position:absolute;left:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;width:min(46%,40rem);padding-top:var(--head);transition:opacity .5s,transform .5s;z-index:3}
-.film:not(.live) .intro{position:relative;width:auto;padding-block:calc(var(--head) + 48px) 8px}
-.intro h1{font-size:clamp(3.4rem,7.6vw,8.4rem)}
-.intro .eyebrow{max-width:none;margin:0;color:var(--red);font-size:.72rem}
-.intro p{max-width:30rem;margin:22px 0 0;color:var(--ink-dim);font-size:clamp(1rem,1.2vw,1.12rem)}
-.hint{display:flex;align-items:center;gap:14px;margin-top:30px;font:500 .72rem/1.4 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim)}
-.hint i{position:relative;width:1.5px;height:46px;background:var(--line);overflow:hidden}
+.intro{position:absolute;left:0;right:0;top:calc(var(--head) + env(safe-area-inset-top,0px) + clamp(28px,9vh,110px));max-width:46rem;transition:opacity .5s,transform .5s}
+.intro .eyebrow{color:#ff5a6e}
+.intro h1{font-size:clamp(3.4rem,7.6vw,8rem);margin-top:16px}
+.intro p{max-width:30rem;margin:22px 0 0;color:var(--cream-dim);font-size:clamp(1rem,1.2vw,1.12rem)}
+.hint{display:flex;align-items:center;gap:14px;margin-top:30px;font:500 .72rem/1.4 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--cream-dim)}
+.hint i{position:relative;width:1.5px;height:46px;background:var(--cream-line);overflow:hidden}
 .hint i::after{content:"";position:absolute;left:0;top:-40%;width:1.5px;height:40%;background:var(--red);animation:drip 2.2s cubic-bezier(.6,0,.3,1) infinite}
 @keyframes drip{to{top:110%}}
-.film:not(.live) .hint{display:none}
 .intro.off{opacity:0;transform:translateY(-16px);pointer-events:none}
 
-.rail{display:none}
-.film.live .rail{display:flex;position:absolute;left:max(var(--gut),env(safe-area-inset-left,0px));bottom:clamp(24px,6vh,64px);gap:8px;z-index:4}
-.rail button{display:flex;align-items:center;gap:8px;min-height:40px;padding:0 12px 0 8px;border:1.5px solid transparent;border-radius:999px;background:none;color:inherit;font:500 .66rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;opacity:.62;transition:opacity .2s,border-color .3s}
-.rail button i{width:16px;height:16px;border-radius:50%;background:var(--sw);box-shadow:0 0 0 1px currentColor}
-.rail button.on{opacity:1;border-color:currentColor}
+.chapters{list-style:none;margin:0;padding:0}
+.chap{position:absolute;left:0;bottom:clamp(40px,11vh,120px);max-width:38rem;opacity:0;transform:translateY(22px);transition:opacity .55s,transform .55s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+.chap.on{opacity:1;transform:none}
+.chap .num{font:500 .72rem/1 var(--f-mono);letter-spacing:.12em;color:#ff5a6e}
+.chap h2{font-size:clamp(3.2rem,6.6vw,6.8rem);margin:14px 0 16px}
+.chap p{margin:0;color:var(--cream-dim);max-width:28rem}
+.colours{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0;padding:0;list-style:none}
+.colours li{display:flex;align-items:center;gap:8px;min-height:36px;padding:0 12px 0 8px;border:1.5px solid var(--cream-line);border-radius:999px;font:500 .68rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--cream-dim);transition:border-color .3s,color .3s}
+.colours i{width:16px;height:16px;border-radius:50%;background:var(--sw);box-shadow:inset 0 0 0 1px rgba(255,255,255,.3)}
+.colours li.on{border-color:var(--cream);color:var(--cream)}
 
-.end{display:none}
-.film.live .end{display:flex;position:absolute;left:0;right:0;bottom:clamp(90px,14vh,150px);top:auto;flex-direction:column;gap:22px;width:min(46%,38rem);opacity:0;transform:translateY(20px);transition:opacity .5s,transform .5s;pointer-events:none;z-index:3}
-.film.live .end.on{opacity:1;transform:none;pointer-events:auto}
-.end h2{font-size:clamp(3rem,6vw,6.4rem)}
+.rail{position:absolute;right:max(var(--gut),env(safe-area-inset-right,0px));bottom:clamp(40px,11vh,120px);display:flex;gap:14px}
+.rail button{display:flex;flex-direction:column;align-items:flex-start;gap:10px;min-height:44px;width:clamp(64px,6vw,92px);background:none;border:0;color:var(--cream-dim);font:500 .68rem/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:0}
+.rail button::before{content:"";width:100%;height:1.5px;background:var(--cream-line);transition:background .3s,height .3s}
+.rail button.on{color:var(--cream)}
+.rail button.on::before{height:3px;background:var(--red)}
+
+.tags{position:absolute;inset:0;pointer-events:none}
+.tag{position:absolute;left:0;top:0;display:flex;align-items:center;gap:8px;white-space:nowrap;font:500 .7rem/1 var(--f-mono);letter-spacing:.06em;color:var(--cream);opacity:0;transition:opacity .35s;will-change:transform}
+.tag::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px rgba(211,19,47,.28);flex:none}
+.tag span{padding:7px 10px;background:rgba(23,22,21,.8);border:1px solid var(--cream-line);border-radius:3px}
+.tag.flip{flex-direction:row-reverse}
+.tag.on{opacity:1}
+
+.end{position:absolute;left:0;right:0;bottom:clamp(40px,10vh,110px);display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;opacity:0;transform:translateY(20px);transition:opacity .5s,transform .5s;pointer-events:none}
+.end.on{opacity:1;transform:none;pointer-events:auto}
+.end h2{font-size:clamp(3rem,6.4vw,6.6rem);max-width:11ch}
 .end .acts{display:flex;flex-wrap:wrap;gap:12px}
 
-@media (max-width:860px){
-  .chap{grid-template-columns:1fr;align-items:start;align-content:start;gap:20px;padding-block:calc(var(--head) + 8px) 32px}
-  .chap .ph,.ph-wrap{justify-self:stretch;order:-1}
-  .ph{width:100%;height:auto;aspect-ratio:4/4.4}
-  .film.live .ph{aspect-ratio:auto;height:46svh}
-  .chap h2{font-size:clamp(3rem,14vw,7rem);margin:12px 0 14px}
-  .chap .kind{font-size:1rem;margin-bottom:8px}
+@media (max-width:1023px){
+  .rail{left:max(var(--gut),env(safe-area-inset-left,0px));bottom:calc(22px + env(safe-area-inset-bottom,0px));gap:6px}
+  .rail button{flex:1;width:auto}
+  .chap,.end{bottom:calc(92px + env(safe-area-inset-bottom,0px))}
+}
+@media (max-width:760px){
+  .scrim{background:linear-gradient(rgba(23,22,21,.7),rgba(23,22,21,0) 24%),linear-gradient(0deg,rgba(23,22,21,.9),rgba(23,22,21,.5) 34%,rgba(23,22,21,0) 52%)}
+  .scrim-intro{background:linear-gradient(rgba(23,22,21,.9),rgba(23,22,21,.72) 46%,rgba(23,22,21,0) 66%)}
+  .intro{top:calc(var(--head) + env(safe-area-inset-top,0px) + 18px)}
+  .intro h1{font-size:clamp(2.8rem,13vw,4.2rem)}
+  .intro p{margin-top:14px;font-size:.96rem}
+  .hint{margin-top:18px}
+  .chap{bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+  .colours{margin-top:14px}
+  .chap h2{font-size:clamp(2.8rem,13vw,3.8rem);margin:10px 0 10px}
   .chap p{font-size:.95rem}
-  .chap .meta{margin-top:12px}
-  .film.live .intro{top:auto;bottom:0;width:auto;justify-content:flex-start;padding-top:0;top:calc(var(--head) + env(safe-area-inset-top,0px) + 46svh + 28px);right:0}
-  .intro h1{font-size:clamp(2.7rem,13vw,4.2rem)}
-  .intro p{margin-top:12px;font-size:.95rem}
-  .hint{display:none}
-  .film.live .rail{left:0;right:0;justify-content:center;bottom:calc(14px + env(safe-area-inset-bottom,0px));padding-inline:var(--gut)}
-  .rail button{font-size:0;gap:0;padding:0 10px;min-height:40px;min-width:44px;justify-content:center}
-  .film.live .end{width:auto;right:0;bottom:calc(76px + env(safe-area-inset-bottom,0px))}
-  .end h2{font-size:clamp(2.6rem,12vw,3.6rem)}
+  .rail button{min-height:32px;font-size:0}
+  .rail button::before{height:3px}
+  .end{bottom:calc(66px + env(safe-area-inset-bottom,0px))}
+  .end .acts{width:100%}
 }
-@media (min-width:600px) and (max-width:860px) and (min-height:900px){
-  .film.live .ph{height:54svh}
-  .film.live .intro{top:calc(var(--head) + 54svh + 28px)}
-}
-@media (max-width:860px) and (max-height:720px){
-  .film.live .ph{height:40svh}
-  .film.live .intro{top:calc(var(--head) + 40svh + 22px)}
-  .film.live .chap p{display:none}
-  .intro p{display:none}
-}
-.film:not(.live) .chap{background:var(--sw-bg);color:var(--sw-fg)}
+
+/* still film */
+.film:not(.live) .frames{position:relative;inset:auto;height:min(78vh,760px);min-height:440px}
+.film:not(.live) .scrim{inset:0 0 auto;height:min(78vh,760px);min-height:440px;background:linear-gradient(90deg,rgba(23,22,21,.88),rgba(23,22,21,.55) 45%,rgba(23,22,21,.1) 75%)}
+.film:not(.live) .rail,.film:not(.live) .tags,.film:not(.live) .hint{display:none}
+.film:not(.live) .chapters{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:32px;padding-block:56px;padding-left:max(var(--gut),env(safe-area-inset-left,0px));padding-right:max(var(--gut),env(safe-area-inset-right,0px))}
+.film:not(.live) .chap{position:static;opacity:1;transform:none;max-width:none;padding-left:0;padding-right:0}
+.film:not(.live) .chap h2{font-size:2.6rem}
+.film:not(.live) .end{position:static;opacity:1;transform:none;padding-bottom:72px;pointer-events:auto}
+@media (max-width:760px){.film:not(.live) .scrim{background:rgba(23,22,21,.72)}}
 
 /* ---------- atölye ---------- */
 .studio{padding-block:clamp(88px,16vh,180px)}
@@ -331,59 +343,79 @@ h3{margin:0}
 </header>
 
 <main>
-  <section class="film" id="film" aria-label="Dört mutfak, dört renk">
+  <section class="film" id="film" aria-label="Bir mutfağın boş odadan teslime hikâyesi">
     <div class="stage">
+      <div class="frames">
+        <picture class="fr fr-1"><source media="(max-width:760px)" srcset="img/film/1-kesif-m.webp"><img src="img/film/1-kesif.webp" alt="" width="1920" height="1080" fetchpriority="high"></picture>
+        <picture class="fr fr-2"><source media="(max-width:760px)" srcset="img/film/2-cizim-m.webp"><img src="img/film/2-cizim.webp" alt="" width="1920" height="1080"></picture>
+        <picture class="fr fr-3"><source media="(max-width:760px)" srcset="img/film/3-montaj-m.webp"><img src="img/film/3-montaj.webp" alt="" width="1920" height="1080"></picture>
+        <picture class="fr fr-4"><source media="(max-width:760px)" srcset="img/film/4-teslim-m.webp"><img src="img/film/4-teslim.webp" alt="Teslim edilmiş mutfak: kaşmir lake kulpsuz kapaklar, ceviz boy dolaplar, krem porselen tezgâh ve dolap altı LED" width="1920" height="1080"></picture>
+        <picture class="fr fr-5"><source media="(max-width:760px)" srcset="img/film/5-yesil-m.webp"><img src="img/film/5-yesil.webp" alt="" width="1920" height="1080"></picture>
+        <picture class="fr fr-6"><source media="(max-width:760px)" srcset="img/film/6-mavi-m.webp"><img src="img/film/6-mavi.webp" alt="" width="1920" height="1080"></picture>
+        <i class="seam"></i>
+      </div>
+      <div class="scrim"></div>
+      <div class="scrim scrim-intro"></div>
+
       <div class="intro wrap">
         <p class="eyebrow">Hisar Mutfak · Muğla</p>
         <h1 class="disp">Mutfağınız, <span class="r">sizin renginizde.</span></h1>
-        <p>Lake, soft ve panel kapaklı mutfaklar; banyo dolabı, gardırop ve TV ünitesi. Ölçüsünü alır, çizer, üretir ve kurarız.</p>
-        <div class="hint"><i></i>Kaydırın: dört ev, dört renk</div>
+        <p>Boş bir odadan teslime kadar: ölçüsünü alır, çizer, üretir ve kurarız. Rengini siz seçersiniz.</p>
+        <div class="hint"><i></i>Kaydırın: bir mutfak, ölçüden teslime</div>
       </div>
 
-      <!-- data-bg: the ground behind each kitchen (its door colour); data-tone: text on it -->
-      <article class="chap wrap" data-bg="#dbe4ee" data-tone="light" style="--sw:#b7c8de;--sw-bg:#dbe4ee;--sw-fg:var(--ink)">
-        <div class="txt">
-          <span class="num"><i></i>01 / 04 · Lake kapak</span>
-          <h2 class="disp">Light blue</h2>
-          <p class="kind">Çerçeveli lake kapak, camlı üst dolap</p>
-          <p>Açık mavi lake, pirinç kulplar ve vitrinli üst dolaplar. L planlı mutfakta ankastre fırın ve mikrodalga boy dolapta.</p>
-          <div class="meta"><span>Muğla · Ekim 2026</span><a href="https://www.instagram.com/p/DfC8mPjDXFf/" target="_blank" rel="noopener">Instagram’da gör</a></div>
-        </div>
-        <div class="ph-wrap"><figure class="ph"><img src="img/lightblue.webp" width="480" height="640" fetchpriority="high" alt="Açık mavi çerçeveli lake kapaklı L mutfak, pirinç kulplar ve camlı üst dolaplar"></figure></div>
-      </article>
+      <ol class="chapters">
+        <li class="chap wrap" data-from="0.4" data-to="2.3">
+          <span class="num">01 / 05</span>
+          <h2 class="disp">Keşif &amp; ölçü</h2>
+          <p>İlk adım ücretsiz. Evinize gelip duvarları, pencereyi, tesisatı ve tavan yüksekliğini yerinde ölçüyoruz.</p>
+        </li>
+        <li class="chap wrap" data-from="2.6" data-to="4.7">
+          <span class="num">02 / 05</span>
+          <h2 class="disp">Çizim</h2>
+          <p>Mutfak önce çizimde kurulur. Dolap yerleşimini, boy dolapları ve ankastre yerlerini üretimden önce birlikte kararlaştırırız.</p>
+        </li>
+        <li class="chap wrap" data-from="5.2" data-to="7.1">
+          <span class="num">03 / 05</span>
+          <h2 class="disp">Üretim &amp; montaj</h2>
+          <p>Gövdeler çizimdeki ölçüyle üretilir ve kendi ekibimizce kurulur. Kapaklar en son, tezgâhla birlikte gelir.</p>
+        </li>
+        <li class="chap wrap" data-from="8.6" data-to="10.1">
+          <span class="num">04 / 05</span>
+          <h2 class="disp">Teslim</h2>
+          <p>Kulpsuz lake kapaklar, ceviz boy dolaplar, porselen tezgâh ve dolap altı LED. Size kalan, ışığı yakmak.</p>
+        </li>
+        <li class="chap wrap" data-from="10.2" data-to="13.2">
+          <span class="num">05 / 05</span>
+          <h2 class="disp">Sizin <span class="r">renginizde</span></h2>
+          <p>Aynı mutfak, farklı bir kapak. Lake, soft ya da panel; rengi numunelerle evinizin ışığında seçersiniz.</p>
+          <ul class="colours" aria-label="Kapak renkleri">
+            <li class="on" style="--sw:#d8c8b0"><i></i>Kaşmir</li>
+            <li style="--sw:#345c40"><i></i>Yeşil</li>
+            <li style="--sw:#b0c6de"><i></i>Light blue</li>
+          </ul>
+        </li>
+      </ol>
 
-      <article class="chap wrap" data-bg="#22402b" data-tone="dark" style="--sw:#3d6b47;--sw-bg:#22402b;--sw-fg:var(--cream)">
-        <div class="txt">
-          <span class="num"><i></i>02 / 04 · Gönçük kapak</span>
-          <h2 class="disp">Yeşil</h2>
-          <p class="kind">Yeşil lake gönçük kapak, ceviz boy dolap</p>
-          <p>Ahşap tavanlı bir evde koyu yeşil lake kapaklar; ceviz boy dolap ve mermer desenli tezgâh arası. Sizin tarzınıza göre çizilir.</p>
-          <div class="meta"><span>Muğla · Haziran 2025</span><a href="https://www.instagram.com/p/DKmZNk3IuL8/" target="_blank" rel="noopener">Instagram’da gör</a></div>
-        </div>
-        <div class="ph-wrap"><figure class="ph"><img src="img/yesil.webp" width="512" height="640" loading="lazy" alt="Koyu yeşil gönçük lake kapaklı mutfak, ceviz boy dolap ve mermer desenli tezgâh arası"></figure><i class="seam"></i></div>
-      </article>
+      <!-- data-d / data-m: the point on the desktop (16:9) / phone (9:16) image, as fractions of its width and height.
+           The phone frames are the middle 31% of the desktop ones, so data-m x = (data-d x − .343) / .314. -->
+      <div class="tags" aria-hidden="true">
+        <div class="tag" data-d=".44,.528" data-m=".4,.528" data-from="0.6" data-to="2.2"><span>Arka duvar · 412 cm</span></div>
+        <div class="tag" data-d=".6,.115" data-from="0.9" data-to="2.2"><span>Tavan · 268 cm</span></div>
+        <div class="tag" data-d=".44,.3" data-m=".35,.3" data-from="5.5" data-to="7.0"><span>Gövde · 18 mm</span></div>
+        <div class="tag" data-d=".82,.5" data-from="5.7" data-to="7.0"><span>Ankastre boşluğu</span></div>
+        <div class="tag" data-d=".5,.465" data-m=".5,.465" data-from="8.9" data-to="10.0"><span>Dolap altı LED</span></div>
+        <div class="tag" data-d=".47,.68" data-m=".4,.68" data-from="9.1" data-to="10.0"><span>Kulpsuz lake kapak</span></div>
+        <div class="tag" data-d=".9,.42" data-from="9.3" data-to="10.0"><span>Ceviz boy dolap</span></div>
+      </div>
 
-      <article class="chap wrap" data-bg="#3a3c3e" data-tone="dark" style="--sw:#7d7f81;--sw-bg:#3a3c3e;--sw-fg:var(--cream)">
-        <div class="txt">
-          <span class="num"><i></i>03 / 04 · Kapak yenileme</span>
-          <h2 class="disp">Antrasit</h2>
-          <p class="kind">Aynı gövde, yeni yüz</p>
-          <p>Kullanılan bir mutfakta yalnızca kapakları değiştirdik: yıkım yok, gövde ve tezgâh yerinde. Parlak gri panel kapak, uzun boy üst dolaplar.</p>
-          <div class="meta"><span>Muğla · Ekim 2026</span><a href="https://www.instagram.com/p/DeZHiugDYJM/" target="_blank" rel="noopener">Instagram’da gör</a></div>
-        </div>
-        <div class="ph-wrap"><figure class="ph"><img src="img/antrasit.webp" width="480" height="640" loading="lazy" alt="Kapakları parlak gri panel kapakla yenilenmiş uzun mutfak"></figure><i class="seam"></i></div>
-      </article>
-
-      <article class="chap wrap" data-bg="#171513" data-tone="dark" style="--sw:#2b2a28;--sw-bg:#171513;--sw-fg:var(--cream)">
-        <div class="txt">
-          <span class="num"><i></i>04 / 04 · Gizli LED</span>
-          <h2 class="disp">Füme <span class="r">&amp;</span> ışık</h2>
-          <p class="kind">Kulpsuz lake, gizli LED, oluklu cam</p>
-          <p>Gizli LED’li asma tavan, tezgâh altı ışık, ankastre boy dolap ve oluklu cam vitrin. Akşam olunca mutfak kendi ışığıyla yanar.</p>
-          <div class="meta"><span>Menteşe · Ekim 2026</span><a href="https://www.instagram.com/p/DeCjxesjQKt/" target="_blank" rel="noopener">Instagram’da gör</a></div>
-        </div>
-        <div class="ph-wrap"><figure class="ph"><img src="img/mentese.webp" width="480" height="640" loading="lazy" alt="Menteşe’de füme ve açık gri kulpsuz mutfak, gizli LED tavan, sarkıt lambalar ve oluklu cam vitrin"></figure><i class="seam"></i></div>
-      </article>
+      <nav class="rail" aria-label="Film bölümleri">
+        <button type="button" data-go="1.3">Keşif</button>
+        <button type="button" data-go="3.7">Çizim</button>
+        <button type="button" data-go="6.2">Montaj</button>
+        <button type="button" data-go="9.4">Teslim</button>
+        <button type="button" data-go="10.6">Renk</button>
+      </nav>
 
       <div class="end wrap">
         <h2 class="disp">Sıradaki mutfak <span class="r">sizinki.</span></h2>
@@ -392,13 +424,6 @@ h3{margin:0}
           <a class="btn btn--ghost" href="#isler"><span>İşleri gör</span></a>
         </div>
       </div>
-
-      <nav class="rail" aria-label="Renkler">
-        <button type="button" data-go="1.3" style="--sw:#b7c8de"><i></i>Light blue</button>
-        <button type="button" data-go="4.2" style="--sw:#3d6b47"><i></i>Yeşil</button>
-        <button type="button" data-go="6.8" style="--sw:#7d7f81"><i></i>Antrasit</button>
-        <button type="button" data-go="9" style="--sw:#2b2a28"><i></i>Füme</button>
-      </nav>
     </div>
   </section>
 
@@ -427,6 +452,22 @@ h3{margin:0}
           <p>Mutfaktan vestiyere, ölçüsü alınıp üretilen ve kurulan işler. Fotoğraflar Hisar Mutfak’ın kendi paylaşımlarından.</p>
         </div>
         <div class="track">
+          <figure class="card card--p">
+            <a href="https://www.instagram.com/p/DeCjxesjQKt/" target="_blank" rel="noopener"><div class="pic"><img src="img/mentese.webp" width="480" height="640" loading="lazy" alt="Menteşe’de füme ve açık gri kulpsuz mutfak, gizli LED tavan, sarkıt lambalar ve oluklu cam vitrin"></div></a>
+            <figcaption><span class="loc">Menteşe</span><h3>Gizli LED &amp; füme</h3><span class="scope">Kulpsuz lake, gizli LED’li asma tavan, ankastre boy dolap ve oluklu cam vitrin.</span></figcaption>
+          </figure>
+          <figure class="card card--p">
+            <a href="https://www.instagram.com/p/DfC8mPjDXFf/" target="_blank" rel="noopener"><div class="pic"><img src="img/lightblue.webp" width="480" height="640" loading="lazy" alt="Açık mavi çerçeveli lake kapaklı L mutfak, pirinç kulplar ve camlı üst dolaplar"></div></a>
+            <figcaption><span class="loc">Muğla</span><h3>Light blue lake</h3><span class="scope">Çerçeveli lake kapak, pirinç kulp ve vitrinli üst dolaplar.</span></figcaption>
+          </figure>
+          <figure class="card card--p">
+            <a href="https://www.instagram.com/p/DKmZNk3IuL8/" target="_blank" rel="noopener"><div class="pic"><img src="img/yesil.webp" width="512" height="640" loading="lazy" alt="Koyu yeşil gönçük lake kapaklı mutfak, ceviz boy dolap"></div></a>
+            <figcaption><span class="loc">Muğla</span><h3>Yeşil gönçük</h3><span class="scope">Ahşap tavanlı bir evde yeşil lake gönçük kapak ve ceviz boy dolap.</span></figcaption>
+          </figure>
+          <figure class="card card--p">
+            <a href="https://www.instagram.com/p/DeZHiugDYJM/" target="_blank" rel="noopener"><div class="pic"><img src="img/antrasit.webp" width="480" height="640" loading="lazy" alt="Kapakları parlak gri panel kapakla yenilenmiş uzun mutfak"></div></a>
+            <figcaption><span class="loc">Muğla</span><h3>Kapak yenileme</h3><span class="scope">Gövde ve tezgâh yerinde, yalnızca kapaklar yenilendi.</span></figcaption>
+          </figure>
           <figure class="card card--s">
             <a href="https://www.instagram.com/p/DPGwH0zjfqd/" target="_blank" rel="noopener"><div class="pic"><img src="img/kizilagac.webp" width="640" height="640" loading="lazy" alt="Açık gri kulpsuz lake mutfak, mermer desenli tezgâh arası ve kristal avize"></div></a>
             <figcaption><span class="loc">Kızılağaç</span><h3>Lake mutfak &amp; banyo</h3><span class="scope">Kulpsuz açık gri lake mutfak dolabı ve banyo dolabı, aynı evde.</span></figcaption>
@@ -602,7 +643,7 @@ document.documentElement.classList.add('js');
     // a still film is ordinary content, so the header settles as soon as the page moves
     const past = film.classList.contains('live') ? scrollY > filmEnd - 10 : scrollY > 40;
     top.classList.toggle('solid', past);
-    top.classList.toggle('dark', !past && film.classList.contains('tone-dark'));
+    top.classList.toggle('dark', !past);
     const ct = $('#iletisim').getBoundingClientRect();
     // the film's end screen has its own buttons and the colour rail where these would sit
     quick.classList.toggle('hide', scrollY < filmEnd + innerHeight * .6 ||(ct.top < innerHeight * .6 && ct.bottom > 0));
@@ -678,46 +719,60 @@ document.documentElement.classList.add('js');
   });
   form.addEventListener('submit', e => e.preventDefault());
 
-  // film: scroll → film time 0–10 → each new kitchen lifts up from below like a door, the ground takes its colour
+  // film: scroll → film time 0–14 → which keyframe shows, how far each door-lift has run, which chapter is lit
   (() => {
     if (reduce || new URLSearchParams(location.search).has('still')) return;
     film.classList.add('live');
-    const T_END = 10;
-    const WIPES = [[2.4, 3.4], [5.0, 6.0], [7.6, 8.6]];   // chapters 2, 3, 4 come in here
+    const T_END = 14;
     const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
     const smooth = (a, b, v) => { const x = clamp((v - a) / (b - a)); return x * x * (3 - 2 * x); };
-    const hex = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
-    const chaps = $$('.chap', film).map(el => ({ el, bg: hex(el.dataset.bg), dark: el.dataset.tone === 'dark', ph: $('.ph', el), img: $('img', el), seam: $('.seam', el) }));
-    const intro = $('.intro', film), endEl = $('.end', film), railBtns = $$('.rail button', film);
-    // the photos are lazy below the first; the film shows them all, so start them now
-    chaps.forEach(c => { c.img.loading = 'eager'; });
+    const stage = $('.stage', film), frames = $('.frames', film), seam = $('.seam', film);
+    const img = n => $(`.fr-${n} img`, film);
+    const f2 = img(2), f3 = img(3), lifts = [img(4), img(5), img(6)];
+    const intro = $('.intro', film), introShade = $('.scrim-intro', film), chaps = $$('.chap', film), endEl = $('.end', film), railBtns = $$('.rail button', film);
+    const colours = $$('.colours li', film);
+    const pt = s => s && s.split(',').map(Number);
+    const tags = $$('.tag', film).map(el => ({ el, d: pt(el.dataset.d), m: pt(el.dataset.m), from: +el.dataset.from, to: +el.dataset.to }));
+    const phone = matchMedia('(max-width:760px)');
+    let W = 1, H = 1;
 
     function apply(t) {
-      const w = [1, ...WIPES.map(([a, b]) => smooth(a, b, t))];
-      let col = chaps[0].bg;
-      for (let i = 1; i < chaps.length; i++) col = col.map((v, j) => v + (chaps[i].bg[j] - v) * w[i]);
-      film.style.setProperty('--bg', `rgb(${col.map(Math.round).join(',')})`);
-      let tone = 0; for (let i = 1; i < chaps.length; i++) if (w[i] > .5) tone = i;
-      film.classList.toggle('tone-dark', chaps[tone].dark);
-
-      const ci = t < 2.9 ? 0 : t < 5.5 ? 1 : t < 8.1 ? 2 : 3;
-      const showEnd = t > 9.3;
-      chaps.forEach((c, i) => {
-        c.el.classList.toggle('on', i === ci && !(i === 0 && t < .35) && !showEnd);
-        if (i > 0) {
-          const edge = (1 - w[i]) * 100;
-          c.ph.style.clipPath = `inset(${edge.toFixed(2)}% 0 0 0)`;
-          c.seam.style.top = edge + '%';
-          c.seam.style.opacity = w[i] > 0 && w[i] < 1 ? 1 : 0;
-        }
-        // each photo settles from a slight push-in over its own time on screen
-        const start = i ? WIPES[i - 1][0] : 0;
-        c.img.style.transform = `scale(${(1.1 - .1 * clamp((t - start) / 3.2)).toFixed(4)})`;
+      f2.style.opacity = smooth(2.2, 3.4, t);
+      f3.style.opacity = smooth(4.8, 6.0, t);
+      // the finished kitchen lifts in like a door, then its two recolours the same way
+      const w = [smooth(7.2, 8.8, t), smooth(10.3, 11.1, t), smooth(11.7, 12.5, t)];
+      let moving = -1;
+      lifts.forEach((el, i) => {
+        el.style.clipPath = `inset(${((1 - w[i]) * 100).toFixed(2)}% 0 0 0)`;
+        if (w[i] > 0 && w[i] < 1) moving = i;
       });
-      intro.classList.toggle('off', t > .35);
-      endEl.classList.toggle('on', showEnd);
+      seam.style.opacity = moving < 0 ? 0 : 1;
+      if (moving >= 0) seam.style.top = (1 - w[moving]) * 100 + '%';
+      const s = 1.08 - .08 * t / T_END;
+      frames.style.transform = `scale(${s.toFixed(4)})`;
+
+      intro.classList.toggle('off', t > .4); introShade.classList.toggle('off', t > .4);
+      chaps.forEach(c => c.classList.toggle('on', t >= +c.dataset.from && t < +c.dataset.to));
+      const ck = w[2] > .5 ? 2 : w[1] > .5 ? 1 : 0;
+      colours.forEach((c, i) => c.classList.toggle('on', i === ck));
+      endEl.classList.toggle('on', t > 13.3);
+      const ci = t < 2.45 ? 0 : t < 4.95 ? 1 : t < 7.9 ? 2 : t < 10.15 ? 3 : 4;
       railBtns.forEach((b, i) => { b.classList.toggle('on', i === ci); b.setAttribute('aria-current', i === ci ? 'step' : 'false'); });
-      onScroll();
+
+      // tags sit on points of the image: map them through object-fit: cover and the push-in scale
+      const ia = phone.matches ? 9 / 16 : 16 / 9;
+      const rw = W / H > ia ? W : H * ia, rh = rw / ia, ox = (W - rw) / 2, oy = (H - rh) / 2;
+      for (const g of tags) {
+        const p = phone.matches ? g.m : g.d;
+        const on = !!p && t >= g.from && t < g.to;
+        g.el.classList.toggle('on', on);
+        if (!on) continue;
+        const x = W * .5 + (ox + p[0] * rw - W * .5) * s, y = H * .55 + (oy + p[1] * rh - H * .55) * s;
+        const flip = x > W * .62;
+        g.el.classList.toggle('flip', flip);
+        const left = clamp(x + (flip ? -g.el.offsetWidth + 5 : -5), 8, W - g.el.offsetWidth - 8);
+        g.el.style.transform = `translate3d(${left.toFixed(1)}px,${(y - g.el.offsetHeight / 2).toFixed(1)}px,0)`;
+      }
     }
 
     // ease towards the scroll target so wheel steps glide; stop when settled
@@ -735,12 +790,13 @@ document.documentElement.classList.add('js');
       target = clamp(-r.top / Math.max(1, r.height - innerHeight)) * T_END;
       if (!raf) raf = requestAnimationFrame(tick);
     }
+    function size() { W = stage.clientWidth; H = stage.clientHeight; apply(cur); }
     addEventListener('scroll', read, { passive: true });
-    addEventListener('resize', read);
+    addEventListener('resize', () => { size(); read(); });
     railBtns.forEach(b => b.addEventListener('click', () => {
       scrollTo({ top: film.offsetTop + (+b.dataset.go / T_END) * (film.offsetHeight - innerHeight), behavior: 'smooth' });
     }));
-    read(); cur = target; apply(cur);
+    size(); read(); cur = target; apply(cur);
   })();
 })();
 </script>

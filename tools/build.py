@@ -25,18 +25,13 @@ FAVICON = (
 
 
 def share_image(dst):
-    # the four film kitchens side by side, 1200 × 630
+    # the finished film kitchen, cropped to 1200 × 630
+    src = Image.open(os.path.join(ROOT, "img", "film", "4-teslim.webp")).convert("RGB")
     w, h = 1200, 630
-    out = Image.new("RGB", (w, h))
-    names = ["lightblue", "yesil", "antrasit", "mentese"]
-    cw = w // len(names)
-    for i, n in enumerate(names):
-        im = Image.open(os.path.join(ROOT, "img", n + ".webp")).convert("RGB")
-        scale = max(cw / im.width, h / im.height)
-        im = im.resize((round(im.width * scale), round(im.height * scale)), Image.LANCZOS)
-        left, top = (im.width - cw) // 2, (im.height - h) // 2
-        out.paste(im.crop((left, top, left + cw, top + h)), (i * cw, 0))
-    out.save(dst, "JPEG", quality=84, optimize=True, progressive=True)
+    scale = max(w / src.width, h / src.height)
+    src = src.resize((round(src.width * scale), round(src.height * scale)), Image.LANCZOS)
+    left, top = (src.width - w) // 2, (src.height - h) // 2
+    src.crop((left, top, left + w, top + h)).save(dst, "JPEG", quality=84, optimize=True, progressive=True)
 
 
 def main():

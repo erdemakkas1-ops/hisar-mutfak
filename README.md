@@ -16,24 +16,33 @@ cd pages && git add -A && git commit -m "Update site" && git push
 
 ## The film
 
-Four of Hisar's own kitchens, scrubbed by scroll over film seconds 0–10:
+Six keyframes of one kitchen from one camera (`img/film/`, 1920 × 1080 and 1080 × 1920 for phones),
+scrubbed by scroll over film seconds 0–14, telling Hisar's own process:
 
-1. **Light blue** — framed lacquer doors (`lightblue`).
-2. **Yeşil** — green lacquer shaker doors (`yesil`).
-3. **Antrasit** — door renewal on an existing kitchen (`antrasit`).
-4. **Füme & ışık** — Menteşe, hidden LED (`mentese`); closing call to action.
+1. **Keşif & ölçü** — the empty room, a laser level's red line on the wall (`1-kesif`).
+2. **Çizim** — fades to the same kitchen as a white clay model (`2-cizim`).
+3. **Üretim & montaj** — fades to carcasses without doors or worktop (`3-montaj`).
+4. **Teslim** — the finished kitchen lifts up from below behind a red edge, like a door (`4-teslim`).
+5. **Sizin renginizde** — the doors turn green, then light blue, the same way (`5-yesil`, `6-mavi`);
+   then the closing call to action.
 
-Each new kitchen lifts up from below behind a red edge, like a door, and the whole ground blends into
-that kitchen's door colour (`data-bg` / `data-tone` on each `.chap`). The colour rail jumps between them.
-`prefers-reduced-motion`, no JS, or `?still` show the four chapters stacked, each on its own colour.
+- The frames are Gemini images (see `GEMINI.md` for the prompts and order; the originals sit in
+  `gemini/`, kept out of git). They came out at 1024 × 572, so the 1920 px frames are upscaled and
+  soft; the phone frames are cut from the middle of the desktop ones. Full-size or vertical (`-m`)
+  versions from Gemini would sharpen both.
+  `py -3 tools/keyframes.py [folder]` aligns, crops and converts a set (default folder `gemini/`).
+- The whole stage pushes in slightly (scale 1.08 → 1). Chapter captions use `data-from`/`data-to`
+  in film seconds; annotation tags use `data-d` / `data-m`, a point on the desktop / phone image as
+  fractions of its width and height. Re-place them when the images change.
+- `prefers-reduced-motion`, no JS, or `?still` show the finished kitchen and the chapters as text.
 
-The film was planned as AI keyframes of one kitchen (empty room → carcasses → doors → evening),
-but the Gemini key on this machine was rejected (401), so it uses only real photos.
+The real photos that opened the first version (light blue, yeşil, antrasit, Menteşe) now lead the İşler track.
 
 ## Build and preview
 
 ```bash
 py -3 tools/photos.py         # only after changing photos (needs instagram-raw/)
+py -3 tools/keyframes.py      # only after new Gemini frames (needs gemini/)
 py -3 tools/build.py [https://site-url]
 node tools/serve.js           # dist/ on http://localhost:5531
 ```
